@@ -1,0 +1,9 @@
+export OSP_GUID=4340
+export OPENTLC_ID=lishu-redhat.com
+export OSP_DOMAIN=blue.osp.opentlc.com
+export TOWER_GUID=8bee
+export OPENTLC_PASSWORD='1DOT$1four'
+export GITHUB_REPO=https://github.com/lees07/nextgen_ansible_advanced_homework.git
+export JQ_REPO_BASE=http://www.opentlc.com/download/ansible_bootcamp
+export REGION=us-east-1
+export MAIL_ID=lishu@redhat.com

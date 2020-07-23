@@ -1,0 +1,23 @@
+---
+# Initial, common, system setup steps
+
+- name: enable sudo without tty for some ansible commands
+  replace:
+    path: /etc/sudoers
+    regexp: '^Defaults\s*requiretty'
+    replace: 'Defaults  !requiretty'
+    backup: yes
+
+- name: enable repos
+  get_url:
+    url: http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+    dest: /etc/yum.repos.d/internal_three-tier-app.repo
+    mode: 0644
+
+- name: install base tools and packages
+  yum:
+    name: 
+      - httpie
+      - python-pip
+    state: latest
+
