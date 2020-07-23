@@ -1,9 +1,0 @@
-export OSP_GUID=<osp guid>
-export OPENTLC_ID=<user_name>
-export OSP_DOMAIN=<osp domain name>
-export TOWER_GUID=<tower guid>
-export OPENTLC_PASSWORD=<password>
-export GITHUB_REPO=https://github.com/lees07/nextgen_ansible_advanced_homework.git
-export JQ_REPO_BASE=http://www.opentlc.com/download/ansible_bootcamp
-export REGION=us-east-1
-export MAIL_ID=<email>
