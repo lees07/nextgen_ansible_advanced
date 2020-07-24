@@ -8,9 +8,10 @@
      name:
        - python3
        - git
+       - ansible
      state: latest 
 - name: Install openstack library
-  command: pip3 install ansible openstacksdk -U
+  command: pip3 install openstacksdk python-openstackclient -U
 - name: Create clouds.yaml file
   blockinfile:
     create: yes
