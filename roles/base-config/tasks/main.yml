@@ -9,8 +9,8 @@
     backup: yes
 
 - name: enable repos
-  get_url:
-    url: http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+  template:
+    src: repos_template.j2
     dest: /etc/yum.repos.d/internal_three-tier-app.repo
     mode: 0644
 
