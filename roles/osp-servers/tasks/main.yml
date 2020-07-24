@@ -1,31 +1,32 @@
 ---
 
 # tasks file for osp.servers
-# Setup front-end load balancer tier
+- name: Create instances
+  os_server:
+    cloud: openstack
+    name: "{{ item.value.name }}"
+    image: "{{ item.value.image }}"
+    key_name: "{{ item.value.key_name }}"
+    flavor: "{{ item.value.flavor }}"
+    security_groups: "{{ item.value.security_group }}"
+    delete_fip: yes
+    wait: no
+    nics:
+      - net-name: int_network
+    meta: "{{ item.value.meta[0] }}"
+    userdata: |
+      #!/bin/bash
+      curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
+      cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
+  with_dict: "{{ osp_servers }}"
 
-- name: setup load-balancer tier
-  hosts: frontends
-  become: yes
-  roles:
-    - {name: base-config, tags: base-config}
-    - {name: lb-tier, tags: [lbs, haproxy]}
-
-# Setup application servers tier
-
-- name: setup app tier
-  hosts: apps
-  become: yes
-  gather_facts: false
-  roles:
-    - {name: base-config, tags: base-config}
-    - {name: app-tier, tags: [apps, tomcat]}
-
-# Setup database tier
-
-- name: setup database tier
-  become: yes
-  hosts: appdbs
-  roles:
-    - {name: base-config, tags: base-config}
-    - {name: db-tier, tags: [dbs, postgres]}
-
+- name: Add floating IP to instance
+  os_floating_ip:
+    cloud: openstack
+    state: "{{ item.value.state }}"
+    reuse: yes
+    server: "{{ item.value.name }}"
+    network: ext_network
+    wait: true
+    timeout: 200
+  with_dict: "{{ osp_servers }}"
