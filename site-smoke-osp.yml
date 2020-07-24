@@ -1,3 +1,9 @@
+---
+- hosts: workstation
+  gather_facts: true
+  roles:
+  - name: osp-facts
+
 - hosts: frontends
   gather_facts: false
   tasks:
