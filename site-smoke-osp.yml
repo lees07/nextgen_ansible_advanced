@@ -1,18 +1,11 @@
-- hosts: workstation
+- hosts: frontends
   gather_facts: false
   tasks:
-  - name: OpenStack servers
-    os_server_facts:
-      cloud: openstack
-    register: result
-
   - name: Curl website
     uri:
-      url: "http://{{ item.public_v4 }}"
+      url: "http://localhost"
       return_content: yes
       status_code: 200
-    with_items: "{{result.ansible_facts.openstack_servers}}"
-    when: item.metadata.group == "frontends"
     register: webpage
 
   - debug: var=webpage.content
