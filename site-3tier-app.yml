@@ -2,11 +2,8 @@
   gather_facts: true
   roles:
     - name: osp-facts
-  tags:
-    - osp.facts
-# Setup front-end load balancer tier
 
-- debug: var=groups
+# Setup front-end load balancer tier
 
 - name: setup load-balancer tier
   hosts: frontends
