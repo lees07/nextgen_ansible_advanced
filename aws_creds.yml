@@ -2,12 +2,6 @@
   gather_facts: true
   become: true
   tasks:
-  - name: Setup SSH keys for opentlc user
-    authorized_key:
-      user: '{{ param_user }}'
-      state: present
-      key: /root/.ssh/mykey.pem
-
   - name: Install required packages 
     yum: 
      name: "{{item}}"
