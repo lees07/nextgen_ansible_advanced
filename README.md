@@ -14,7 +14,7 @@ Deployment sequence are following:
 
 
 ### Deployment Architecture
-![Diagram of PoC deployment architecture](/images/deployment-arch.png)  
+![Diagram of PoC deployment architecture](/deployment-arch.png)  
 
 
 ### Guidance
@@ -32,7 +32,7 @@ Design and implements guidance are following:
 
 ## Ansible workflow job template
 Following the requirements, the Ansible workflow job is seperate to several jobs.  
-![Diagram of workflow job template](/images/workflow-job-template.png)  
+![Diagram of workflow job template](/workflow-job-template.png)  
 
 Job template | Description
 ------------|------------
@@ -81,7 +81,7 @@ site-smoke-osp.yml | Playbook to test three tier app on OSP
 site-smoketest-aws.yml | Playbook to test three tier app on AWS
 grading-script.yml | Self grading script
 
-![Result of workflow job template](/images/result.png)  
+![Result of workflow job template](/result.png)  
 
 ## Troubleshooting issues
 1. Variable "{{ opentlc_login }}" does not set correctly in config-tower role. Fixed.  
