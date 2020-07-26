@@ -86,7 +86,7 @@ grading-script.yml | Self grading script
 ## Troubleshooting issues
 1. Variable "{{ opentlc_login }}" does not set correctly in config-tower role. Fixed.  
 2. Single Quotation Marks need to use when special character exist in username or password in aws_provision.yml, like:  
----
+```
     - name: create credentials
       copy:
         content: |
@@ -95,18 +95,18 @@ grading-script.yml | Self grading script
           export uri=https://labs.opentlc.com
         dest: /root/credential.rc
         mode: 0755
----
+```
 
 
 
-## Some document errors   
-Sector 4.3.5, the internal repo with 192.168.0.5 can't be accessed.  
----
+## Some document errors 
+1. Sector 4.3.5, the internal repo with 192.168.0.5 can't be accessed.  
+```
 5. Configure your instance to use the organization’s local yum repository, 
 http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo  
----
+```
 
-Sector 4.4.2, the item name in command will be "Ansible Advanced - Three Tier App"  
----
-source credential.rc ; ./order_svc.sh -y -c 'OPENTLC Automation' -i 'Ansible Advanced' -t 1 -d 'dialog_expiration=7;region=na;nodes=1;dialog_runtime=8'  
----
+2. Sector 4.4.2, the item name in command will be "Ansible Advanced - Three Tier App"  
+```
+source credential.rc ; ./order_svc.sh -y -c 'OPENTLC Automation' -i 'Ansible Advanced' -t 1 -d 'dialog_expiration=7;region=na;nodes=1;dialog_runtime=8'
+```
