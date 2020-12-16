@@ -1,4 +1,4 @@
-# Notes of GPTE Ansible Advanced Homework  
+# Notes of GPTE Ansible Advanced  
   
 ## PoC requirements:  
 
