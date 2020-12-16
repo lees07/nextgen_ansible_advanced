@@ -49,7 +49,7 @@ Job template | Description
 Nuke QA Env | Cleanup instances of QA env 
 
 ## Ansible playbooks & roles
-Please review the codes from https://github.com/lees07/nextgen_ansible_advanced_homework.git
+Please review the codes from https://github.com/lees07/nextgen_ansible_advanced.git
 
 Playbook or role | Description
 ------------|------------
